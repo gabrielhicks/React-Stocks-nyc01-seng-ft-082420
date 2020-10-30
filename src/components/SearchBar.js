@@ -1,6 +1,10 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = props => {
+
+  function filterStocks(type) {
+    props.filterStocks(type)
+  }
   return (
     <div>
 
@@ -17,7 +21,7 @@ const SearchBar = () => {
 
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={event=> filterStocks(event.target.value)}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
